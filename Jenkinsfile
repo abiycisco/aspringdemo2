@@ -43,7 +43,7 @@ pipeline {
           sh "git config --global credential.helper store"
           sh "jx step git credentials"
 
-          // so we can retrieve the version in later steps
+          // so we can retrieve the version in later steps - Version number
           sh "echo \$(jx-release-version) > VERSION"
           sh "mvn versions:set -DnewVersion=\$(cat VERSION)"
           sh "jx step tag --version \$(cat VERSION)"
